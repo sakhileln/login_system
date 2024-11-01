@@ -71,7 +71,6 @@ def display_login_banner() -> None:
           :-""-.`./-.'     /    `.___.'
                 \ `t  ._  /
                  "-.t-._:'
- May the Force be with you! Login successful!
     '''
     print(banner)
 
