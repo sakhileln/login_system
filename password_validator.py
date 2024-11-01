@@ -79,7 +79,28 @@ def check_punctuation(password: str) -> bool:
     Return:
         Boolean -> True/False
     """
+    if " " in password:
+        return False
     for ch in password:
         if ch in punctuation:
             return True
+    return False
+
+
+def is_secure(password: str) -> bool:
+    """
+    Check is password is secure.
+
+    Parameters:
+        password (str): Password to be checked
+    Return:
+        bool: True if secure, False otherwise
+    """
+    if (
+        check_length(password)
+        and check_case(password)
+        and check_digit(password)
+        and check_punctuation(password)
+    ):
+        return True
     return False
