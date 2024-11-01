@@ -57,6 +57,23 @@ def check_allowed_characters(username: str) -> bool:
     return False
 
 
+def check_offensive_content(username: str) -> bool:
+    """
+    Check if username contains any offensive words.
+
+    Parameters:
+        username (str): Username to check
+    Return:
+        bool: True if contains offensice words
+    """
+    with open("offensive_content.txt", "r", errors="ignore") as f:
+        offensive_words = f.read().split()
+    for word in offensive_words:
+        if word == username:
+            return True
+    return False
+
+
 def username_validator(username: str) -> bool:
     """
     Validate provided username according to a set rules.
@@ -69,3 +86,8 @@ def username_validator(username: str) -> bool:
     if check_length_user(username):
         return True
     return False
+
+
+if __name__ == "__main__":
+    # Test cases
+    check_offensive_content("wacky")  # Output: True
