@@ -12,6 +12,8 @@ def create_account() -> None:
     Return:
         None.
     """
+    print("")
+    print("----------Create account----------")
     input_username = input("Username: ")
     input_password = input("Password: ")
     print("Please retype the passoword")
@@ -27,6 +29,8 @@ def sign_in() -> None:
     Return:
         None.
     """
+    print("")
+    print("----------Sign in----------")
     username = input("Username: ")
     password = input("Password: ")
     print("______________________________")
