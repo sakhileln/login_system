@@ -4,11 +4,6 @@ A module to validate if password is secure.
 
 from string import punctuation
 
-# Length minimun >= 8
-# At least one upper and lowercase character
-# Has a digit
-# Contains at least one Special characters
-
 
 def check_length(password: str) -> bool:
     """
@@ -104,3 +99,9 @@ def is_secure(password: str) -> bool:
     ):
         return True
     return False
+
+
+if __name__ == "__main__":
+    # Test cases
+    password = "sEcur3p@W0rd!"
+    print(is_secure(password))  # Output: True
