@@ -38,9 +38,16 @@ def sign_in() -> None:
     """
     print("")
     print("----------Sign in----------")
-    username = input("Username: ")
-    password = input("Password: ")
+    input_username = input("Username: ")
+    input_password = input("Password: ")
     print("______________________________")
+    with open("database.txt", "r", errors="ignore") as f:
+        database = f.read().split()
+    for line in database:
+        stored_username, stored_password = line.split(":")
+        if input_username == stored_username and input_password == stored_password:
+            print("Login successful.")
+            print(f"Welcome, {input_username}")
 
 
 def exit_program() -> None:
@@ -59,6 +66,6 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    create_account()
+    # create_account()
     sign_in()
     exit_program()
