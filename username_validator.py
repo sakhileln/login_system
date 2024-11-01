@@ -96,7 +96,7 @@ def is_valid_username(username: str) -> bool:
     if (
         check_length_user(username)
         and check_allowed_characters(username)
-        and check_offensive_content(username)
+        and not check_offensive_content(username)
         and check_spaces(username)
         and check_consecutive_punctuation(username)
     ):
