@@ -169,6 +169,12 @@ class TestLoginSystem(unittest.TestCase):
         """
         self.assertEqual(is_valid_username("abc"), True)
 
+    def test_invalid_username(self):
+        """
+        Test invalid username
+        """
+        self.assertFalse(is_valid_username("abc__"))
+
 
 if __name__ == "__main__":
     unittest.main()
