@@ -2,7 +2,7 @@
 Test cases for the login system module.
 """
 
-from password_validator import check_length, check_case, check_digit
+from password_validator import check_length, check_case, check_digit, check_punctuation
 import unittest
 
 
@@ -52,6 +52,24 @@ class TestLoginSystem(unittest.TestCase):
         Test password with digit
         """
         self.assertEqual(check_digit("withdigit9"), True)
+
+    def test_no_punctuation(self):
+        """
+        Test password without special characters.
+        """
+        self.assertEqual(check_punctuation("nopunctuation"), False)
+
+    def test_spaces_check(self):
+        """
+        Test for password with spaces.
+        """
+        self.assertEqual(check_punctuation("with spaces "), False)
+
+    def test_with_punctuation(self):
+        """
+        Test for password with punctuation
+        """
+        self.assertEqual(check_punctuation("with!punc%tuation@"), True)
 
 
 if __name__ == "__main__":
