@@ -50,3 +50,18 @@ def check_case(password: str) -> bool:
         return True
 
     return False
+
+
+def check_digit(password: str) -> bool:
+    """
+    Check if password has digit.
+
+    Parameters:
+        password -> str: Passwrod to be checked
+    Return:
+        Boolean -> True/False
+    """
+    for ch in password:
+        if ch.isdigit():
+            return True
+    return False
