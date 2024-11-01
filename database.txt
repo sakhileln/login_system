@@ -1,2 +1,4 @@
-cat:dOgalien:paSsSteve:jobS
+cat:dOg
+alien:paSs
+Steve:jobS
 elon:mUsk
