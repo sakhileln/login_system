@@ -56,6 +56,6 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 5. Open a pull request.
 
 ## Contact
-Sakhile III  
-[LinkedIn Profile](https://www.linkedin.com/in/sakhilendlazi)
-[GitHub Profile](https://github.com/sakhileln)
+- Sakhile III  
+- [LinkedIn Profile](https://www.linkedin.com/in/sakhilendlazi)
+- [GitHub Profile](https://github.com/sakhileln)
