@@ -51,20 +51,6 @@ def check_offensive_content(username: str) -> bool:
     return False
 
 
-def username_validator(username: str) -> bool:
-    """
-    Validate provided username according to a set rules.
-
-    Parameters:
-        username (str): Username to be checked
-    Return:
-        bool: True if valid, False otherwise
-    """
-    if check_length_user(username):
-        return True
-    return False
-
-
 def check_spaces(username: str) -> bool:
     """
     Check for spaces in a username.
