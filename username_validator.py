@@ -25,6 +25,8 @@
 A module for username validation.
 """
 
+from re import match
+
 
 def check_length_user(username: str) -> bool:
     """
@@ -36,6 +38,21 @@ def check_length_user(username: str) -> bool:
         bool: True if within range, False otherwise
     """
     if 3 <= len(username) <= 20:
+        return True
+    return False
+
+
+def check_allowed_characters(username: str) -> bool:
+    """
+    Check if username has lower and uppercase, numbers, underscores, dot,
+    and hyphens
+
+    Parameters:
+        username (str): Username to be checked
+    Return:
+        bool: True if contain valid characters, False otherwise
+    """
+    if match("^[a-zA-Z0-9._-]*$", username):
         return True
     return False
 
