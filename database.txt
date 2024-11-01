@@ -2,3 +2,6 @@ cat:dOg
 alien:paSs
 Steve:jobS
 elon:mUsk
+sak:abcdefg
+bighead:abc
+abc:abcDEFgh!0
