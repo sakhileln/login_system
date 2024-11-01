@@ -14,6 +14,7 @@ from username_validator import (
     check_allowed_characters,
     check_offensive_content,
     check_spaces,
+    check_consecutive_punctuation,
 )
 import unittest
 
@@ -148,6 +149,18 @@ class TestLoginSystem(unittest.TestCase):
         Test username with spaces
         """
         self.assertFalse(check_spaces(" spa ces  "))
+
+    def test_repeated_special_characters(self):
+        """
+        Test username with repeated special charavters
+        """
+        self.assertFalse(check_consecutive_punctuation("__repeated"))
+
+    def test_no_repeated_special(self):
+        """
+        Test username with no repeated special characters
+        """
+        self.assertTrue(check_consecutive_punctuation("_valid."))
 
 
 if __name__ == "__main__":
