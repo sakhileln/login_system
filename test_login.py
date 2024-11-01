@@ -27,7 +27,19 @@ class TestLoginSystem(unittest.TestCase):
         """
         Test lowercase password
         """
-        self.assertFalse("lowercase")
+        self.assertEqual(check_case("lowercase"), False)
+
+    def test_only_uppercase(self):
+        """
+        Test uppercase password.
+        """
+        self.assertEqual(check_case("UPPERCASE"), False)
+
+    def test_mix_case(self):
+        """
+        Test uppercase and lowercase
+        """
+        self.assertEqual(check_case("miXcAsE"), True)
 
 
 if __name__ == "__main__":
