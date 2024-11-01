@@ -1,3 +1,10 @@
+"""
+Main drive module.
+"""
+
+from helper import sign_in, create_account, exit_program
+
+
 print("______________________________")
 print("     A Simple Login System   ")
 print("******************************")
@@ -23,35 +30,3 @@ match choice:
         exit_program()
     case _:
         print("Invalid choice")
-
-
-def create_account() -> None:
-    """
-    Function that handles user account creation
-
-    Parameters:
-        None.
-    Return:
-        None.
-    """
-    input_username = input("Username: ")
-    input_password = input("Password: ")
-    print("Please retype the passoword")
-    retype_password = input("Password: ")
-
-
-def sign_in() -> None:
-    """
-    Function that handles user sign in.
-
-    Parameters:
-        None.
-    Return:
-        None.
-    """
-    username = input("Username: ")
-    password = input("Password: ")
-    print("______________________________")
-
-
-# print(username, password)
