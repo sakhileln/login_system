@@ -2,7 +2,13 @@
 Test cases for the login system module.
 """
 
-from password_validator import check_length, check_case, check_digit, check_punctuation
+from password_validator import (
+    check_length,
+    check_case,
+    check_digit,
+    check_punctuation,
+    is_secure,
+)
 import unittest
 
 
@@ -70,6 +76,18 @@ class TestLoginSystem(unittest.TestCase):
         Test for password with punctuation
         """
         self.assertEqual(check_punctuation("with!punc%tuation@"), True)
+
+    def test_not_sucure(self):
+        """
+        Test not secure password
+        """
+        self.assertFalse(is_secure("No#t Secu!r3"))
+
+    def test_secure_pasword(self):
+        """
+        Test secure password
+        """
+        self.assertTrue(is_secure("sEcur3p@W0rd"))
 
 
 if __name__ == "__main__":
