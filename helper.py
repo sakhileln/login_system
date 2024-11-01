@@ -40,13 +40,12 @@ def create_account() -> None:
             print("Please retype the password")
             retype_password = input("Password: ")
 
-    if input_password == retype_password:
-        with open("database.txt", "a", errors="ignore") as f:
-            f.write(f"{input_username}:{input_password}")
-            f.write("\n")
+    with open("database.txt", "a", errors="ignore") as f:
+        f.write(f"{input_username}:{input_password}")
+        f.write("\n")
         print("Account created successfully.")
-    else:
-        print("Passwords do not match. Please try again")
+
+    # Prompt user to sign in or exit
 
 
 def sign_in() -> None:
