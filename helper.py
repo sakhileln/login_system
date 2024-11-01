@@ -7,6 +7,7 @@ from banner import (
     display_lightsaber,
     display_login_banner,
 )
+from getpass import getpass
 from password_validator import is_secure
 from username_validator import is_valid_username
 
@@ -49,9 +50,9 @@ def create_account() -> None:
             )
             break  # Exit the loop when a valid and unique username is found
 
-    input_password = input("Password: ")
+    input_password = getpass("Password: ")
     print("Please retype the passoword")
-    retype_password = input("Password: ")
+    retype_password = getpass("Password: ")
 
     # Check if password is valid
     while not is_secure(input_password):
@@ -60,16 +61,16 @@ def create_account() -> None:
         print(
             "Password must be, at least 8 characters, one upper and lowercase, one digit, one punctuation"
         )
-        input_password = input("Password: ")
+        input_password = getpass("Password: ")
         print("Please retype the password")
-        retype_password = input("Password: ")
+        retype_password = getpass("Password: ")
         # Check if passwords match
         while input_password != retype_password:
             print("")
             print("Passwords do not match, please try again...")
-            input_password = input("Password: ")
+            input_password = getpass("Password: ")
             print("Please retype the password")
-            retype_password = input("Password: ")
+            retype_password = getpass("Password: ")
 
     with open("database.txt", "a", errors="ignore") as f:
         f.write(f"{input_username}:{input_password}")
