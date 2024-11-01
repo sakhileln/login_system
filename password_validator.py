@@ -2,6 +2,8 @@
 A module to validate if password is secure.
 """
 
+from string import punctuation
+
 # Length minimun >= 8
 # At least one upper and lowercase character
 # Has a digit
@@ -64,5 +66,20 @@ def check_digit(password: str) -> bool:
     """
     for ch in password:
         if ch.isdigit():
+            return True
+    return False
+
+
+def check_punctuation(password: str) -> bool:
+    """
+    Check if password has special characters.
+
+    Parameters:
+        password -> str: Password to be checked
+    Return:
+        Boolean -> True/False
+    """
+    for ch in password:
+        if ch in punctuation:
             return True
     return False
