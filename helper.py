@@ -3,6 +3,7 @@ A module for helper functions.
 """
 
 from banner import display_exit_banner
+from password_validator import is_secure
 
 
 def create_account() -> None:
@@ -20,6 +21,17 @@ def create_account() -> None:
     input_password = input("Password: ")
     print("Please retype the passoword")
     retype_password = input("Password: ")
+
+    # Check if password is valid
+    while not is_secure(input_password):
+        print("")
+        print("Invalid password.")
+        print(
+            "Password must be, at least 8 characters, one upper and lowercase, one digit, one punctuation"
+        )
+        input_password = input("Password: ")
+        print("Please retype the password")
+        retype_password = input("Password: ")
 
     while input_password != retype_password:
         print("")
