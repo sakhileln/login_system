@@ -9,7 +9,11 @@ from password_validator import (
     check_punctuation,
     is_secure,
 )
-from username_validator import check_length_user, check_allowed_characters
+from username_validator import (
+    check_length_user,
+    check_allowed_characters,
+    check_offensive_content,
+)
 import unittest
 
 
@@ -119,6 +123,18 @@ class TestLoginSystem(unittest.TestCase):
         Test valid characters
         """
         self.assertTrue(check_allowed_characters("aA0._-"))
+
+    def test_normal_words(self):
+        """
+        Test normal words
+        """
+        self.assertFalse(check_offensive_content("user"))
+
+    def test_offensive_word(self):
+        """
+        Test offensive word
+        """
+        self.assertTrue(check_offensive_content("wacky"))
 
 
 if __name__ == "__main__":
