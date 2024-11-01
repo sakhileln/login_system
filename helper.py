@@ -29,16 +29,21 @@ def create_account() -> None:
             continue  # Prompt for username again
 
         # Now check if the username already exists
-        with open("database.txt", 'r', errors='ignore') as f:
+        with open("database.txt", "r", errors="ignore") as f:
             users = f.read().splitlines()  # Use splitlines() to get each line
-            username_exists = any(user.split(":")[0] == input_username for user in users)
+            username_exists = any(
+                user.split(":")[0] == input_username for user in users
+            )
 
         if username_exists:
-            print(f"Username '{input_username}' is not available, please choose another one.")
+            print(
+                f"Username '{input_username}' is not available, please choose another one."
+            )
         else:
-            print(f"Username '{input_username}' is available! Proceeding to create account...")
+            print(
+                f"Username '{input_username}' is available! Proceeding to create account..."
+            )
             break  # Exit the loop when a valid and unique username is found
-
 
     input_password = input("Password: ")
     print("Please retype the passoword")
@@ -97,9 +102,8 @@ def landing_page() -> None:
         None
     """
     # Implement a greeting, like, "Welcome, {username}"
-    print("")
-    print("Welcome, young Padawan!")
-    print("Your mission log is empty. Time to recharge your lightsaber!")
+    print("Your mission log is empty, young Padawan.")
+    print("Time to recharge your lightsaber!")
     display_lightsaber()
     exit_program()
 
@@ -123,8 +127,9 @@ def sign_in() -> None:
     for line in database:
         stored_username, stored_password = line.split(":")
         if input_username == stored_username and input_password == stored_password:
-            print("Login successful.")
+            print("")
             print(f"Welcome, {input_username}")
+            landing_page()
 
 
 def exit_program() -> None:
