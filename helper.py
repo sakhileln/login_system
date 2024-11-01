@@ -20,7 +20,8 @@ def create_account() -> None:
     retype_password = input("Password: ")
     if input_password == retype_password:
         with open("database.txt", "a", errors="ignore") as f:
-            f.write(f"{input_username}:{input_password}\n")
+            f.write(f"{input_username}:{input_password}")
+            f.write("\n")
         print("Account created successfully.")
     else:
         print("Passwords do not match. Please try again")
