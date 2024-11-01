@@ -31,21 +31,22 @@ def check_case(password: str) -> bool:
     Rturn:
         Boolean-> bool: True/Fale
     """
-    lowercase = "abcdefghijklmnopqrstuvwxyz"
-    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+    # Check if there is a lowercase
     def check_lowercase(string):
         for ch in string:
-            if ch in lowercase:
+            if ch.islower():
                 return True
         return False
 
+    # Check if there is an uppercase
     def check_uppercase(string):
         for ch in string:
-            if ch in uppercase:
+            if ch.isupper():
                 return True
         return False
 
+    # Check for lowercase and uppercase
     if check_lowercase(password) and check_uppercase(password):
         return True
 
