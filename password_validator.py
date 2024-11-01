@@ -20,3 +20,33 @@ def check_length(password: str) -> bool:
     if len(password) >= 8:
         return True
     return False
+
+
+def check_case(password: str) -> bool:
+    """
+    Check if password has upper and lowercase characters.
+
+    Parameters:
+        password-> str: Password to be checked
+    Rturn:
+        Boolean-> bool: True/Fale
+    """
+    lowercase = "abcdefghijklmnopqrstuvwxyz"
+    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    def check_lowercase(string):
+        for ch in string:
+            if ch in lowercase:
+                return True
+        return False
+
+    def check_uppercase(string):
+        for ch in string:
+            if ch in uppercase:
+                return True
+        return False
+
+    if check_lowercase(password) and check_uppercase(password):
+        return True
+
+    return False
