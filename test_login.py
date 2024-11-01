@@ -2,7 +2,7 @@
 Test cases for the login system module.
 """
 
-from password_validator import check_length, check_case
+from password_validator import check_length, check_case, check_digit
 import unittest
 
 
@@ -40,6 +40,18 @@ class TestLoginSystem(unittest.TestCase):
         Test uppercase and lowercase
         """
         self.assertEqual(check_case("miXcAsE"), True)
+
+    def test_no_digit(self):
+        """
+        Test password without a digit
+        """
+        self.assertEqual(check_digit("nodigit"), False)
+
+    def test_with_digit(self):
+        """
+        Test password with digit
+        """
+        self.assertEqual(check_digit("withdigit9"), True)
 
 
 if __name__ == "__main__":
