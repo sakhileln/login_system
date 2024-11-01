@@ -16,5 +16,39 @@
 
 # 5. No Consecutive Special Characters
 # Restrict repeated special characters (e.g., “__” or “--”).
-# 8. Case Sensitivity
-# Decide if usernames are case-sensitive. Commonly, they are not (e.g., "UserName" and "username" are treated as the same).
+
+# 6. Case Sensitivity
+# Decide if usernames are case-sensitive. Commonly, they are not (e.g., "UserName" and "username" are treated as the same).\
+
+
+"""
+A module for username validation.
+"""
+
+
+def check_length_user(username: str) -> bool:
+    """
+    Check password length
+
+    Parameters:
+        username (str): Username to be checked
+    Return:
+        bool: True if within range, False otherwise
+    """
+    if 3 <= len(username) <= 20:
+        return True
+    return False
+
+
+def username_validator(username: str) -> bool:
+    """
+    Validate provided username according to a set rules.
+
+    Parameters:
+        username (str): Username to be checked
+    Return:
+        bool: True if valid, False otherwise
+    """
+    if check_length_user(username):
+        return True
+    return False
