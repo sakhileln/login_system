@@ -2,7 +2,7 @@
 A module for helper functions.
 """
 
-from banner import display_exit_banner
+from banner import display_exit_banner, display_lightsaber
 from password_validator import is_secure
 
 
@@ -65,6 +65,23 @@ def create_account() -> None:
             print("Invalid choice")
 
 
+def landing_page() -> None:
+    """
+    Print landing page after succeful login.
+
+    Parameters:
+        None
+    Return:
+        None
+    """
+    # Implement a greeting, like, "Welcome, {username}"
+    print("")
+    print("Welcome, young Padawan!")
+    print("Your mission log is empty. Time to recharge your lightsaber!")
+    display_lightsaber()
+    exit_program()
+
+
 def sign_in() -> None:
     """
     Function that handles user sign in.
@@ -105,6 +122,7 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    create_account()
+    # create_account()
     # sign_in()
     # exit_program()
+    landing_page()
