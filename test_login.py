@@ -9,6 +9,7 @@ from password_validator import (
     check_punctuation,
     is_secure,
 )
+from username_validator import check_length_user
 import unittest
 
 
@@ -88,6 +89,24 @@ class TestLoginSystem(unittest.TestCase):
         Test secure password
         """
         self.assertTrue(is_secure("sEcur3p@W0rd"))
+
+    def test_short_usernames(self):
+        """
+        Test short username
+        """
+        self.assertEqual(check_length_user("sl"), False)
+
+    def test_long_username(self):
+        """
+        Test long username
+        """
+        self.assertFalse(check_length_user("abcdefghijklmnopqrstuvxyz"))
+
+    def test_valid_length_username(self):
+        """
+        Test valid valid length password
+        """
+        self.assertTrue(check_length_user("sakhile"))
 
 
 if __name__ == "__main__":
