@@ -88,6 +88,25 @@ def username_validator(username: str) -> bool:
     return False
 
 
+def check_spaces(username: str) -> bool:
+    """
+    Check for spaces in a username.
+
+    This function checks if the provided username contains any leading,
+    trailing, or consecutive spaces within the username. A valid username
+    should not start or end with spaces and should not contain multiple
+    consecutive spaces.
+
+    Paramaters:
+        username (str): The username to check
+    Return:
+        bool: True if unsername has no spaces, False otherwise
+    """
+    if " " in username:
+        return False
+    return True
+
+
 if __name__ == "__main__":
     # Test cases
     check_offensive_content("wacky")  # Output: True
