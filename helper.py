@@ -2,7 +2,11 @@
 A module for helper functions.
 """
 
-from banner import display_exit_banner, display_lightsaber
+from banner import (
+    display_exit_banner,
+    display_lightsaber,
+    display_login_banner,
+)
 from password_validator import is_secure
 from username_validator import is_valid_username
 
@@ -127,6 +131,7 @@ def sign_in() -> None:
     for line in database:
         stored_username, stored_password = line.split(":")
         if input_username == stored_username and input_password == stored_password:
+            display_login_banner()
             print("")
             print(f"Welcome, {input_username}")
             landing_page()
