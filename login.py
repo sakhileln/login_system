@@ -5,9 +5,9 @@ Main drive module.
 from helper import sign_in, create_account, exit_program
 
 
-print("______________________________")
-print("     A Simple Login System   ")
-print("******************************")
+print("__________________________________")
+print("     STAR WARS Login Terminal   ")
+print("**********************************")
 print()
 
 print("1. Login")
