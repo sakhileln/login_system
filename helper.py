@@ -125,7 +125,7 @@ def sign_in() -> None:
     print("")
     print("----------Sign in----------")
     input_username = input("Username: ")
-    input_password = input("Password: ")
+    input_password = getpass("Password: ")
     print("______________________________")
     with open("database.txt", "r", errors="ignore") as f:
         database = f.read().split()
@@ -155,7 +155,7 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    create_account()
-    # sign_in()
+    # create_account()
+    sign_in()
     # exit_program()
     # landing_page()
