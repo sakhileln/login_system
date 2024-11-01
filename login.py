@@ -2,9 +2,11 @@
 Main drive module.
 """
 
+from banner import display_welcome_banner
 from helper import sign_in, create_account, exit_program
 
 
+display_welcome_banner()
 print("__________________________________")
 print("     STAR WARS Login Terminal   ")
 print("**********************************")
