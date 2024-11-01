@@ -46,6 +46,23 @@ def create_account() -> None:
         print("Account created successfully.")
 
     # Prompt user to sign in or exit
+    print("")
+    print("1. Sign in")
+    print("2. Exit")
+    choice = input("Please choose option 1, or 2")
+    while choice not in ["1", "2"]:
+        print("")
+        print(f"Incorect input: {choice}. Please try again...")
+        choice = input("Please choose option 1, or 2")
+    choice = int(choice)
+
+    match choice:
+        case 1:
+            sign_in()
+        case 2:
+            exit_program()
+        case _:
+            print("Invalid choice")
 
 
 def sign_in() -> None:
