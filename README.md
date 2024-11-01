@@ -55,6 +55,10 @@ Contributions are welcome! If you have suggestions for improvements or new featu
    ```
 5. Open a pull request.
 
+## TODOs
+- Hide password input on the terminal interface.
+- Use small database like SQLite for storing passwords and usernames.
+
 ## Contact
 - Sakhile III  
 - [LinkedIn Profile](https://www.linkedin.com/in/sakhilendlazi)
