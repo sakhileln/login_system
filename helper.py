@@ -20,6 +20,14 @@ def create_account() -> None:
     input_password = input("Password: ")
     print("Please retype the passoword")
     retype_password = input("Password: ")
+
+    while input_password != retype_password:
+        print("")
+        print("Passwords do not match, please try again...")
+        input_password = input("Password: ")
+        print("Please retype the password")
+        retype_password = input("Password: ")
+
     if input_password == retype_password:
         with open("database.txt", "a", errors="ignore") as f:
             f.write(f"{input_username}:{input_password}")
@@ -69,6 +77,6 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    # create_account()
+    create_account()
     # sign_in()
-    exit_program()
+    # exit_program()
