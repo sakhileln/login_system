@@ -98,6 +98,26 @@ def check_consecutive_punctuation(username: str) -> bool:
     return not bool(search(pattern, username))  # Search for pattern in username
 
 
+def is_valid_username(username: str) -> bool:
+    """
+    Check is username is valid according to criteria
+
+    Parameters:
+        username (str): The username to be checked
+    Return:
+        bool: True if valid, False otherwise
+    """
+    if (
+        check_length_user(username)
+        and check_allowed_characters(username)
+        and check_offensive_content(username)
+        and check_spaces(username)
+        and check_consecutive_punctuation(username)
+    ):
+        return True
+    return False
+
+
 if __name__ == "__main__":
     # Test cases
     check_offensive_content("wacky")  # Output: True
