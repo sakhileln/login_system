@@ -1,31 +1,8 @@
-# 1. Length
-# Minimum Length: Typically between 3 to 6 characters.
-# Maximum Length: Often capped at around 15 to 30 characters.
-
-# 2. Allowed Characters
-# Letters: Typically allow both uppercase and lowercase letters (A-Z, a-z).
-# Numbers: Usually allow digits (0-9).
-# Special Characters: Decide if you want to allow characters like underscores (_), hyphens (-), or dots (.) and define a clear set.
-
-# 3. No Offensive Content
-# Profanity Filtering: Block usernames that contain offensive or inappropriate words.
-# Cultural Sensitivity: Avoid names that might be culturally insensitive or offensive.
-
-# 4. No Leading or Trailing Spaces
-# Ensure there are no leading or trailing whitespace characters.
-
-# 5. No Consecutive Special Characters
-# Restrict repeated special characters (e.g., “__” or “--”).
-
-# 6. Case Sensitivity
-# Decide if usernames are case-sensitive. Commonly, they are not (e.g., "UserName" and "username" are treated as the same).\
-
-
 """
 A module for username validation.
 """
 
-from re import match
+from re import match, search
 
 
 def check_length_user(username: str) -> bool:
@@ -105,6 +82,20 @@ def check_spaces(username: str) -> bool:
     if " " in username:
         return False
     return True
+
+
+def check_consecutive_punctuation(username: str) -> bool:
+    """
+    Check repeated special characters
+
+    Parameters:
+        username (str): The username to check
+    Return:
+        bool: True if username has no repeated special characters, else False
+    """
+    # Regex pattern for consecutive special characters
+    pattern = r"[^a-zA-Z0-9]{2,}"
+    return not bool(search(pattern, username))  # Search for pattern in username
 
 
 if __name__ == "__main__":
