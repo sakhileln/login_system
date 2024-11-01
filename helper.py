@@ -4,6 +4,7 @@ A module for helper functions.
 
 from banner import display_exit_banner, display_lightsaber
 from password_validator import is_secure
+from username_validator import is_valid_username
 
 
 def create_account() -> None:
@@ -17,7 +18,28 @@ def create_account() -> None:
     """
     print("")
     print("----------Create account----------")
-    input_username = input("Username: ")
+    while True:
+        input_username = input("Username: ")
+
+        # Check if the username is valid
+        if not is_valid_username(input_username):
+            print("")
+            print("Invalid username. Please try again...")
+            print("Username can contain alphabets, underscores, hyphens, and dots.")
+            continue  # Prompt for username again
+
+        # Now check if the username already exists
+        with open("database.txt", 'r', errors='ignore') as f:
+            users = f.read().splitlines()  # Use splitlines() to get each line
+            username_exists = any(user.split(":")[0] == input_username for user in users)
+
+        if username_exists:
+            print(f"Username '{input_username}' is not available, please choose another one.")
+        else:
+            print(f"Username '{input_username}' is available! Proceeding to create account...")
+            break  # Exit the loop when a valid and unique username is found
+
+
     input_password = input("Password: ")
     print("Please retype the passoword")
     retype_password = input("Password: ")
@@ -122,7 +144,7 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    # create_account()
+    create_account()
     # sign_in()
     # exit_program()
-    landing_page()
+    # landing_page()
