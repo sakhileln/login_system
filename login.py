@@ -14,6 +14,17 @@ while choice not in ["1", "2", "3"]:
 choice = int(choice)
 
 
+match choice:
+    case 1:
+        sign_in()
+    case 2:
+        create_account()
+    case 3:
+        exit_program()
+    case _:
+        print("Invalid choice")
+
+
 def create_account() -> None:
     """
     Function that handles user account creation
