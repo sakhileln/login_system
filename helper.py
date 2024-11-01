@@ -2,6 +2,8 @@
 A module for helper functions.
 """
 
+from banner import display_exit_banner
+
 
 def create_account() -> None:
     """
@@ -59,13 +61,14 @@ def exit_program() -> None:
     Return:
         None.
     """
-    print("Thank you for using our Space Software.")
-    print("See you soon...")
+    print("")
+    print("        See you soon...")
+    display_exit_banner()
     exit()
 
 
 if __name__ == "__main__":
     # Test run
     # create_account()
-    sign_in()
+    # sign_in()
     exit_program()
