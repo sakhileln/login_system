@@ -13,6 +13,7 @@ from username_validator import (
     check_length_user,
     check_allowed_characters,
     check_offensive_content,
+    check_spaces,
 )
 import unittest
 
@@ -135,6 +136,18 @@ class TestLoginSystem(unittest.TestCase):
         Test offensive word
         """
         self.assertTrue(check_offensive_content("wacky"))
+
+    def test_no_spaces_username(self):
+        """
+        Test username valid no space username
+        """
+        self.assertTrue(check_spaces("valid"))
+
+    def test_spaces_username(self):
+        """
+        Test username with spaces
+        """
+        self.assertFalse(check_spaces(" spa ces  "))
 
 
 if __name__ == "__main__":
