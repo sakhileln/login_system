@@ -56,7 +56,6 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 5. Open a pull request.
 
 ## TODOs
-- Hide password input on the terminal interface.
 - Use small database like SQLite for storing passwords and usernames.
 - Use ROT13 to encrypt and decryt passwords
 
