@@ -44,16 +44,20 @@ def write_to_database(username: str, password: str) -> None:
     # Cursor to execute commands and fetch data.
     cursor = connection.cursor()
 
-    # Create the new user
-    cursor.execute(
-        "INSERT INTO users (username, password) VALUES(?, ?)",
-        (username, hashed_password)
-    )
-    # Write changes to the database.
-    connection.commit()
-
-    # Close the connection
-    connection.close()
+    try:
+        # Create the new user
+        cursor.execute(
+            "INSERT INTO users (username, password) VALUES(?, ?)",
+            (username, hashed_password)
+        )
+        # Write changes to the database.
+        connection.commit()
+    except Exception as e:
+        print(f"An error occured: {e}")
+    
+    finally:
+        # Close the connection
+        connection.close()
 
 
 if __name__ == "__main__":
