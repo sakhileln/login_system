@@ -9,6 +9,7 @@ from banner import (
 )
 from getpass import getpass
 from password_validator import is_secure
+from rot13 import encrypt, decrypt
 from username_validator import is_valid_username
 
 
@@ -73,7 +74,7 @@ def create_account() -> None:
             retype_password = getpass("Password: ")
 
     with open("database.txt", "a", errors="ignore") as f:
-        f.write(f"{input_username}:{input_password}")
+        f.write(f"{input_username}:{encrypt(input_password)}")
         f.write("\n")
         print("Account created successfully.")
 
@@ -81,11 +82,11 @@ def create_account() -> None:
     print("")
     print("1. Sign in")
     print("2. Exit")
-    choice = input("Please choose option 1, or 2")
+    choice = input("Please choose option 1, or 2: ")
     while choice not in ["1", "2"]:
         print("")
         print(f"Incorect input: {choice}. Please try again...")
-        choice = input("Please choose option 1, or 2")
+        choice = input("Please choose option 1, or 2: ")
     choice = int(choice)
 
     match choice:
@@ -131,7 +132,9 @@ def sign_in() -> None:
         database = f.read().split()
     for line in database:
         stored_username, stored_password = line.split(":")
-        if input_username == stored_username and input_password == stored_password:
+        if input_username == stored_username and input_password == decrypt(
+            stored_password
+        ):
             display_login_banner()
             print("")
             print(f"Welcome, {input_username}")
@@ -155,7 +158,7 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    # create_account()
-    sign_in()
+    create_account()
+    # sign_in()
     # exit_program()
     # landing_page()
