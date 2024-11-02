@@ -37,7 +37,7 @@ def write_to_database(username: str, password: str) -> None:
         None
     """
     # Hash the password (Can use bcrypt)
-    password = encrypt(password)
+    hashed_password = encrypt(password)
 
     # Initiate connection to the database.
     connection = sqlite3.connect("credentials.sqlite")
@@ -45,17 +45,17 @@ def write_to_database(username: str, password: str) -> None:
     cursor = connection.cursor()
 
     # Create the new user
-    cursor.execute(f"""
-        INSERT INTO users VALUES
-            ("{username}", "{password}")
-    """)
-
+    cursor.execute(
+        "INSERT INTO users (username, password) VALUES(?, ?)",
+        (username, hashed_password)
+    )
     # Write changes to the database.
     connection.commit()
+
     # Close the connection
     connection.close()
 
 
 if __name__ == "__main__":
     # create_database()
-    write_to_database("abc", "efg")
+    write_to_database("steve", "Jobs2011")
