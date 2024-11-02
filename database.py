@@ -17,13 +17,13 @@ def create_database() -> None:
     # Initiate connection to the database
     connection = sqlite3.connect("credentials.sqlite")
 
+    # Cursor is used to execute SQL commands and fetch data
     cursor = connection.cursor()
-    cursor.execute("CREATE TABLE users(username, password)")
-    res = cursor.execute("SELECT * FROM sqlite_master")
+    cursor.execute("CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT)")
 
     # Close the connection once done
     connection.close()
 
 
 if __name__ == "__main__":
-    # create_database()
+    create_database()
