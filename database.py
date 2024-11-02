@@ -60,6 +60,40 @@ def write_to_database(username: str, password: str) -> None:
         connection.close()
 
 
+def read_the_database() -> list:
+    """
+    Read the usernames and passwords.
+
+    Parameters:
+        None
+    Return:
+        None
+    """
+    # Initiate database connection.
+    connection = sqlite3.connect("credentials.sqlite")
+    # Cursor for executing commands and reading database
+    cursor = connection.cursor()
+
+    try:
+        # Read the database
+        response = cursor.execute(
+            "SELECT * FROM users"
+        )
+        # Retrive all credentials
+        credentials = response.fetchall()
+    except Exception as e:
+        print("An error occured: {e}")
+
+    finally:
+        # Close the database connection
+        connection.close()
+
+    # Return the credentials
+    return credentials
+
+
+
 if __name__ == "__main__":
     # create_database()
-    write_to_database("steve", "Jobs2011")
+    # write_to_database("steve", "Jobs2011")
+    print(read_the_database())
