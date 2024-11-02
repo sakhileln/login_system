@@ -9,7 +9,6 @@ def encrypt(string: str) -> str:
     """
     encrypted_string = ""
     for ch in string:
-        shift = 13
         if ch.isalpha():
             if ch.islower():
                 character = (((ord(ch) - ord("a")) + 13) % 26) + ord("a")
@@ -32,4 +31,16 @@ def decrypt(string: str) -> str:
     Return:
         string (str): Decrypted string
     """
-    pass
+    decrypted_message = ""
+    for ch in string:
+        if ch.isalpha():
+            if ch.islower():
+                character = ((ord(ch) - ord("a") - 13) % 26) + ord("a")
+                decrypted_message += chr(character)
+            elif ch.isupper():
+                character = ((ord(ch) - ord("A") - 13) % 26) + ord("A")
+                decrypted_message += chr(character)
+        else:
+            decrypted_message += ch
+
+    return decrypted_message
