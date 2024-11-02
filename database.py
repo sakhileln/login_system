@@ -3,6 +3,7 @@ A module for handling database read and write.
 """
 
 import sqlite3
+from rot13 import encrypt, decrypt
 
 
 def create_database() -> None:
@@ -35,6 +36,9 @@ def write_to_database(username: str, password: str) -> None:
     Return:
         None
     """
+    # Hash the password (Can use bcrypt)
+    password = encrypt(password)
+
     # Initiate connection to the database.
     connection = sqlite3.connect("credentials.sqlite")
     # Cursor to execute commands and fetch data.
