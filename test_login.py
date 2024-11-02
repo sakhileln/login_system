@@ -200,6 +200,18 @@ class TestLoginSystem(unittest.TestCase):
         """
         self.assertEqual(decrypt("noP"), "abC")
 
+    def test_alpha_numeric(self):
+        """
+        Test encryption with alphanumeric strings
+        """
+        self.assertEqual(decrypt("123klM456"), "123xyZ456")
+
+    def test_sample_password_decrypt(self):
+        """
+        Test decryption of sample password
+        """
+        self.assertEqual(decrypt("fq3aWaX@AF@AQa0"), "sd3nJnK@NS@NDn0")
+
 
 if __name__ == "__main__":
     unittest.main()
