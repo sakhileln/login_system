@@ -7,6 +7,7 @@ from banner import (
     display_lightsaber,
     display_login_banner,
 )
+from database import read_the_database
 from getpass import getpass
 from password_validator import is_secure
 from rot13 import encrypt, decrypt
@@ -128,10 +129,11 @@ def sign_in() -> None:
     input_username = input("Username: ")
     input_password = getpass("Password: ")
     print("______________________________")
-    with open("database.txt", "r", errors="ignore") as f:
-        database = f.read().split()
-    for line in database:
-        stored_username, stored_password = line.split(":")
+
+    # Read the database
+    database = read_the_database()
+    # Go through the credentials from database and chek if user exists
+    for stored_username, stored_password in database:
         if input_username == stored_username and input_password == decrypt(
             stored_password
         ):
@@ -158,7 +160,7 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    create_account()
-    # sign_in()
+    # create_account()
+    sign_in()
     # exit_program()
     # landing_page()
