@@ -25,5 +25,33 @@ def create_database() -> None:
     connection.close()
 
 
+def write_to_database(username: str, password: str) -> None:
+    """
+    Write given credentials to the database.
+
+    Parameters:
+        username (str): The username to be written
+        password (str): The password for new user
+    Return:
+        None
+    """
+    # Initiate connection to the database.
+    connection = sqlite3.connect("credentials.sqlite")
+    # Cursor to execute commands and fetch data.
+    cursor = connection.cursor()
+
+    # Create the new user
+    cursor.execute(f"""
+        INSERT INTO users VALUES
+            ("{username}", "{password}")
+    """)
+
+    # Write changes to the database.
+    connection.commit()
+    # Close the connection
+    connection.close()
+
+
 if __name__ == "__main__":
-    create_database()
+    # create_database()
+    write_to_database("abc", "efg")
