@@ -35,12 +35,12 @@ def create_account() -> None:
             print("Username can contain alphabets, underscores, hyphens, and dots.")
             continue  # Prompt for username again
 
-        # Now check if the username already exists
-        with open("database.txt", "r", errors="ignore") as f:
-            users = f.read().splitlines()  # Use splitlines() to get each line
-            username_exists = any(
-                user.split(":")[0] == input_username for user in users
-            )
+        # Read the database
+        database = read_the_database()
+        # Check if username already exists
+        username_exists = any(
+            stored_username == input_username for stored_username, stored_password in database
+        )
 
         if username_exists:
             print(
@@ -160,7 +160,7 @@ def exit_program() -> None:
 
 if __name__ == "__main__":
     # Test run
-    # create_account()
-    sign_in()
+    create_account()
+    # sign_in()
     # exit_program()
     # landing_page()
