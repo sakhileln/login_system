@@ -176,11 +176,17 @@ class TestLoginSystem(unittest.TestCase):
         """
         self.assertFalse(is_valid_username("abc__"))
 
-    def test_encrypt(self):
+    def test_alpha_encrypt(self):
         """
         Test ecnryption of a given string
         """
         self.assertEqual(encrypt("abC"), "noP")
+
+    def test_alpha_numeric_encrypt(self):
+        """
+        Test encryption with alpha numeric strings
+        """
+        self.assertEqual(encrypt("12345xyZ"), "12345klM")
 
 
 if __name__ == "__main__":
