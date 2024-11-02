@@ -9,6 +9,7 @@ from password_validator import (
     check_punctuation,
     is_secure,
 )
+from rot13 import encrypt, decrypt
 from username_validator import (
     check_length_user,
     check_allowed_characters,
@@ -174,6 +175,12 @@ class TestLoginSystem(unittest.TestCase):
         Test invalid username
         """
         self.assertFalse(is_valid_username("abc__"))
+
+    def test_encrypt(self):
+        """
+        Test ecnryption of a given string
+        """
+        self.assertEqual(encrypt("abC"), "noP")
 
 
 if __name__ == "__main__":
