@@ -194,6 +194,12 @@ class TestLoginSystem(unittest.TestCase):
         """
         self.assertEqual(encrypt("sd3nJnK@NS@NDn0"), "fq3aWaX@AF@AQa0")
 
+    def test_alpha_decrypt(self):
+        """
+        Test decryption of simple string
+        """
+        self.assertEqual(decrypt("noP"), "abC")
+
 
 if __name__ == "__main__":
     unittest.main()
