@@ -55,9 +55,6 @@ Contributions are welcome! If you have suggestions for improvements or new featu
    ```
 5. Open a pull request.
 
-## TODOs
-- Use small database like SQLite for storing passwords and usernames.
-
 ## Contact
 - Sakhile III  
 - [LinkedIn Profile](https://www.linkedin.com/in/sakhilendlazi)
