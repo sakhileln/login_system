@@ -44,3 +44,9 @@ def decrypt(string: str) -> str:
             decrypted_message += ch
 
     return decrypted_message
+
+
+if __name__ == "__main__":
+    # Tests
+    # print(encrypt("abC")) # Output 'noP'
+    print(decrypt("noP"))  # Output 'abC'
