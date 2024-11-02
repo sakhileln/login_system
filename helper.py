@@ -7,7 +7,7 @@ from banner import (
     display_lightsaber,
     display_login_banner,
 )
-from database import read_the_database
+from database import read_the_database, write_to_database
 from getpass import getpass
 from password_validator import is_secure
 from rot13 import encrypt, decrypt
@@ -74,10 +74,9 @@ def create_account() -> None:
             print("Please retype the password")
             retype_password = getpass("Password: ")
 
-    with open("database.txt", "a", errors="ignore") as f:
-        f.write(f"{input_username}:{encrypt(input_password)}")
-        f.write("\n")
-        print("Account created successfully.")
+    # Write the new username and password to the database
+    write_to_database(input_username, input_password)
+    print("Account created successfully.")
 
     # Prompt user to sign in or exit
     print("")
