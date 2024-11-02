@@ -188,6 +188,12 @@ class TestLoginSystem(unittest.TestCase):
         """
         self.assertEqual(encrypt("12345xyZ"), "12345klM")
 
+    def test_sample_passwords(self):
+        """
+        Test sample password encryption.
+        """
+        self.assertEqual(encrypt("sd3nJnK@NS@NDn0"), "fq3aWaX@AF@AQa0")
+
 
 if __name__ == "__main__":
     unittest.main()
