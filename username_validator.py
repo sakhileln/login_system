@@ -43,7 +43,7 @@ def check_offensive_content(username: str) -> bool:
     Return:
         bool: True if contains offensice words
     """
-    with open("offensive_content.txt", "r", errors="ignore") as f:
+    with open("offensive_content.txt", "r", errors="ignore", encoding="utf-8") as f:
         offensive_words = f.read().split()
     for word in offensive_words:
         if word == username:
