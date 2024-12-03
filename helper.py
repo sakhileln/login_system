@@ -11,7 +11,7 @@ from banner import (
 )
 from database import read_the_database, write_to_database
 from password_validator import is_secure
-from rot13 import encrypt, decrypt
+from rot13 import decrypt
 from username_validator import is_valid_username
 
 
@@ -78,7 +78,7 @@ def create_account() -> None:
             retype_password = getpass("Password: ")
 
     # Write the new username and password to the database
-    write_to_database(input_username, encrypt(input_password))
+    write_to_database(input_username, input_password)
     print("Account created successfully.")
 
     # Prompt user to sign in or exit
