@@ -48,13 +48,13 @@ def write_to_database(username: str, password: str) -> None:
         # Create the new user
         cursor.execute(
             "INSERT INTO users (username, password) VALUES(?, ?)",
-            (username, hashed_password)
+            (username, hashed_password),
         )
         # Write changes to the database.
         connection.commit()
-    except Exception as e:
-        print(f"An error occured: {e}")
-    
+    except sqlite3.DatabaseError as e:
+        print(f"An error occured writing to database: {e}")
+
     finally:
         # Close the connection
         connection.close()
@@ -76,13 +76,11 @@ def read_the_database() -> list:
 
     try:
         # Read the database
-        response = cursor.execute(
-            "SELECT * FROM users"
-        )
+        response = cursor.execute("SELECT * FROM users")
         # Retrive all credentials
         credentials = response.fetchall()
-    except Exception as e:
-        print("An error occured: {e}")
+    except sqlite3.DatabaseError as e:
+        print(f"An error occured reading database: {e}")
 
     finally:
         # Close the database connection
@@ -90,7 +88,6 @@ def read_the_database() -> list:
 
     # Return the credentials
     return credentials
-
 
 
 if __name__ == "__main__":
