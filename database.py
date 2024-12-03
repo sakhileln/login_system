@@ -3,7 +3,7 @@ A module for handling database read and write.
 """
 
 import sqlite3
-from rot13 import encrypt, decrypt
+from rot13 import encrypt
 
 
 def create_database() -> None:
