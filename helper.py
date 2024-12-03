@@ -2,13 +2,14 @@
 A module for helper functions.
 """
 
+from getpass import getpass
+import sys
 from banner import (
     display_exit_banner,
     display_lightsaber,
     display_login_banner,
 )
 from database import read_the_database, write_to_database
-from getpass import getpass
 from password_validator import is_secure
 from rot13 import encrypt, decrypt
 from username_validator import is_valid_username
@@ -39,7 +40,8 @@ def create_account() -> None:
         database = read_the_database()
         # Check if username already exists
         username_exists = any(
-            stored_username == input_username for stored_username, stored_password in database
+            stored_username == input_username
+            for stored_username, stored_password in database
         )
 
         if username_exists:
@@ -61,7 +63,8 @@ def create_account() -> None:
         print("")
         print("Invalid password.")
         print(
-            "Password must be, at least 8 characters, one upper and lowercase, one digit, one punctuation"
+            """Password must be, at least 8 characters, one upper and lowercase,
+            one digit, one punctuation"""
         )
         input_password = getpass("Password: ")
         print("Please retype the password")
@@ -75,7 +78,7 @@ def create_account() -> None:
             retype_password = getpass("Password: ")
 
     # Write the new username and password to the database
-    write_to_database(input_username, input_password)
+    write_to_database(input_username, encrypt(input_password))
     print("Account created successfully.")
 
     # Prompt user to sign in or exit
@@ -154,7 +157,7 @@ def exit_program() -> None:
     print("")
     print("        See you soon...")
     display_exit_banner()
-    exit()
+    sys.exit()
 
 
 if __name__ == "__main__":
