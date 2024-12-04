@@ -1,3 +1,7 @@
+"""
+A module to encryt and decrypt given password. 
+"""
+
 def encrypt(string: str) -> str:
     """
     Encrypt given string using ROT13 cipher.
