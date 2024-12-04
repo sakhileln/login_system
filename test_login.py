@@ -2,6 +2,7 @@
 Test cases for the login system module.
 """
 
+import unittest
 from password_validator import (
     check_length,
     check_case,
@@ -18,7 +19,6 @@ from username_validator import (
     check_consecutive_punctuation,
     is_valid_username,
 )
-import unittest
 
 
 class TestLoginSystem(unittest.TestCase):
@@ -31,12 +31,6 @@ class TestLoginSystem(unittest.TestCase):
         Test short password
         """
         self.assertFalse(check_length("short"))
-
-    def test_long_passowrd(self):
-        """
-        Test long password
-        """
-        self.assertTrue("longpassword")
 
     def test_only_lowercase(self):
         """
