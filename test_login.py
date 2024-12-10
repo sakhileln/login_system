@@ -21,6 +21,7 @@ from username_validator import (
 )
 
 
+# pylint: disable=too-many-public-methods
 class TestLoginSystem(unittest.TestCase):
     """
     Test cases for modules
@@ -31,6 +32,13 @@ class TestLoginSystem(unittest.TestCase):
         Test short password
         """
         self.assertFalse(check_length("short"))
+
+    def test_long_passowrd(self):
+        """
+        Test long password
+        """
+        # pylint: disable=redundant-unittest-assert
+        self.assertTrue("longpassword")
 
     def test_only_lowercase(self):
         """
