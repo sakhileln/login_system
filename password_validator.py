@@ -5,6 +5,7 @@ A module to validate if password is secure.
 from string import punctuation
 
 
+# pylint: disable=redefined-outer-name
 def check_length(password: str) -> bool:
     """
     Check if password length is greater than or equal to 8 characters.
@@ -19,6 +20,7 @@ def check_length(password: str) -> bool:
     return False
 
 
+# pylint: disable=redefined-outer-name
 def check_case(password: str) -> bool:
     """
     Check if password has upper and lowercase characters.
@@ -50,6 +52,7 @@ def check_case(password: str) -> bool:
     return False
 
 
+# pylint: disable=redefined-outer-name
 def check_digit(password: str) -> bool:
     """
     Check if password has digit.
@@ -65,6 +68,7 @@ def check_digit(password: str) -> bool:
     return False
 
 
+# pylint: disable=redefined-outer-name
 def check_punctuation(password: str) -> bool:
     """
     Check if password has special characters.
@@ -82,6 +86,7 @@ def check_punctuation(password: str) -> bool:
     return False
 
 
+# pylint: disable=redefined-outer-name
 def is_secure(password: str) -> bool:
     """
     Check is password is secure.
@@ -103,5 +108,6 @@ def is_secure(password: str) -> bool:
 
 if __name__ == "__main__":
     # Test cases
+    # pylint: disable=invalid-name
     password = "sEcur3p@W0rd!"
     print(is_secure(password))  # Output: True
