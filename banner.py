@@ -2,6 +2,7 @@
 Module for different banners.
 """
 
+
 def display_welcome_banner() -> None:
     """
     Print out the banner for the welcome screen
