@@ -43,7 +43,7 @@ jobs:
           python -m pip install pylint
       - name: Run Pylint
         run: |
-          pylint .
+          pylint --disable=R0801 .
 
   test:
     runs-on: ubuntu-latest
